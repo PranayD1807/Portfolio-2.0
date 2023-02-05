@@ -1,7 +1,10 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:portfolio/constants/app_assets.dart';
+
 import 'package:portfolio/constants/rive_assets.dart';
 import 'package:rive/rive.dart';
 
@@ -45,11 +48,20 @@ class _CustomTimeLineState extends State<CustomTimeLine> {
             child: SizedBox(
               height: isMobileMode ? 50 : 100,
               width: isMobileMode ? 50 : 100,
-              child: RiveAnimation.asset(
-                RiveAssets.doc_icon,
-                fit: BoxFit.contain,
-                animations: index.isEven ? ["Reverse"] : ["Forward"],
-              ),
+              child: isMobileMode && kIsWeb
+                  ? Image.asset(
+                      index.isOdd
+                          ? AppAssets.riveBookOpen
+                          : AppAssets.riveBookClose,
+                      fit: BoxFit.contain,
+                    )
+                  : RiveAnimation.asset(
+                      RiveAssets.doc_icon,
+                      fit: BoxFit.contain,
+                      placeHolder:
+                          const Center(child: CircularProgressIndicator()),
+                      animations: index.isEven ? ["Reverse"] : ["Forward"],
+                    ),
             ),
           );
         },
@@ -73,11 +85,11 @@ class _CustomTimeLineState extends State<CustomTimeLine> {
       padding: const EdgeInsets.symmetric(vertical: 15.0),
       child: Card(
         elevation: 2,
-        child: Container(
-          width: isMobileMode ? null : size.width * 0.3,
-          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 15),
+        child: Padding(
+          padding: const EdgeInsets.all(15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 widget.steps[index]["title"] ?? "Title",
@@ -108,7 +120,6 @@ class _CustomTimeLineState extends State<CustomTimeLine> {
                 widget.steps[index]["description"] ?? "Description",
                 textScaleFactor: 1,
                 softWrap: true,
-                overflow: TextOverflow.visible,
                 style: const TextStyle(
                   color: Color.fromARGB(255, 48, 48, 48),
                   fontWeight: FontWeight.w300,

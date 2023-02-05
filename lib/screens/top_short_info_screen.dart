@@ -1,6 +1,10 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'dart:developer';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/app_assets.dart';
 
 import 'package:portfolio/constants/rive_assets.dart';
 import 'package:portfolio/screens/about_me_details_screen.dart';
@@ -61,13 +65,26 @@ class _TopShortInfoWidgetState extends State<TopShortInfoWidget> {
                 : deviceSize.height * 0.5,
           ),
           width: !isMobileMode ? deviceSize.width * 0.6 : deviceSize.width,
-          child: RiveAnimation.asset(
-            RiveAssets.springRobot,
-            fit: BoxFit.contain,
-            controllers: [controller],
-            animations: const ['idle'],
-            stateMachines: const ["Motion"],
-          ),
+          child: isMobileMode && kIsWeb
+              ? Image.asset(
+                  AppAssets.riveRobotIsland,
+                  fit: BoxFit.contain,
+                )
+              : RiveAnimation.asset(
+                  RiveAssets.springRobot,
+                  fit: BoxFit.contain,
+                  placeHolder: SizedBox(
+                    height: !isMobileMode
+                        ? deviceSize.height * 0.8
+                        : deviceSize.height * 0.5,
+                    child: const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  ),
+                  controllers: [controller],
+                  animations: const ['idle'],
+                  stateMachines: const ["Motion"],
+                ),
         ),
         if (!isMobileMode)
           _AboutMe(

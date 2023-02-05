@@ -27,7 +27,7 @@ class CustomSliverAppBar extends StatelessWidget {
       leading: Center(
         child: FittedBox(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
