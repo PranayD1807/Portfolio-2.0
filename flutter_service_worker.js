@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "179c92f3828953a96a805132ae99ecee",
+  "assets/AssetManifest.json": "659024529b1008358686f8e4a133a5be",
 "assets/assets/fonts/static/SofiaSans-Black.ttf": "6235b5454cf81fb13c74a5d1237ec0de",
 "assets/assets/fonts/static/SofiaSans-BlackItalic.ttf": "6aaef5c1c05ccaf1c51553c3eb1fa7ec",
 "assets/assets/fonts/static/SofiaSans-Bold.ttf": "7c87f5c1017ae88e09acee278e7a7a1a",
@@ -23,6 +23,11 @@ const RESOURCES = {
 "assets/assets/fonts/static/SofiaSans-Thin.ttf": "3df4a030ff1921686a065deb4f135970",
 "assets/assets/fonts/static/SofiaSans-ThinItalic.ttf": "bd06fac8dd2fdda5b0972521f173b487",
 "assets/assets/images/mypic.jpg": "a886a9d228500ee657e06fe49195361d",
+"assets/assets/images/pic1.jpg": "84e8d13683e5f5ed2127e650f9335838",
+"assets/assets/images/pic2.jpg": "e8a09d1efed2d461ef58d35954a241d2",
+"assets/assets/images/pic3.jpg": "20de9300a28e4411d772bff49d35964d",
+"assets/assets/images/pic3.webp": "ca6aa9b1be242a6006fbdba0a8e022df",
+"assets/assets/images/pic4.jpg": "2360dac301b884d6bc8340a107e49afa",
 "assets/assets/images/rive-robot-island.png": "ced8aec23c4c884a8518b466cc0997f8",
 "assets/assets/images/rive_book_close.png": "6778f8be0747e9a4b0ccaf722521aab9",
 "assets/assets/images/rive_book_open.png": "17dffa01857448100c94273b9d744b43",
@@ -33,7 +38,7 @@ const RESOURCES = {
 "assets/FontManifest.json": "c3cfeadecf65a4b52b8fe15cf2dba75d",
 "assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
 "assets/loading.gif": "b0532e49ace572d9c156b8c33c861d7c",
-"assets/NOTICES": "65d6fa183c9884d807c26a62c222a368",
+"assets/NOTICES": "753e668a21c19cade3e6481d39cd764a",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "99f29024aee8f4672a47cc3a81b9b84a",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "48ce1bb8a42776caa951cb782d277730",
@@ -49,9 +54,9 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "7730ac3a030dae91ced4d39cd9db4763",
-"/": "7730ac3a030dae91ced4d39cd9db4763",
-"main.dart.js": "6ab27b476799ce34765a518171d7e83d",
+"index.html": "b194cf6b2ef9840ecc881850de492d2e",
+"/": "b194cf6b2ef9840ecc881850de492d2e",
+"main.dart.js": "392b5aab974468695a44b6924913c409",
 "manifest.json": "e74af8957b5899dc6da961caee768ec9",
 "version.json": "009c9e65172e010890f7f65fde438006"
 };
