@@ -1,7 +1,9 @@
+import 'dart:developer';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:intl/intl.dart';
-import 'package:portfolio/widgets/fancy_cursor.dart';
+import 'package:portfolio/widgets/carousel.dart';
 
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key});
@@ -43,7 +45,7 @@ class ProjectsSection extends StatelessWidget {
       "imgUrl": "assets/images/pic3.jpg",
       "link": "https://github.com/PranayD1807/Invest-Mate-Backend",
       "description":
-          "This was our group project for college practicum semester 2. This is a fully functional app to apply for jobs etc",
+          "This was our group project for college practicum semester 2. This is a fully functional app to apply for jobs etc, This was our group project for college practicum semester 2.",
       "duration": [DateTime(2022, 1), DateTime(2022, 4)]
     },
     {
@@ -83,33 +85,29 @@ class ProjectsSection extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(
-                vertical: deviceSize.width * 0.02,
-                horizontal: deviceSize.height * 0.1),
-            child: MasonryGridView.count(
-              crossAxisCount: 4,
-              mainAxisSpacing: deviceSize.width * 0.02,
-              crossAxisSpacing: deviceSize.width * 0.02,
-              shrinkWrap: true,
-              itemCount: projects.length,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return ProjectItem(
-                  title: projects[index]["title"],
-                  description: projects[index]["description"],
-                  imgUrl: projects[index]["imgUrl"],
-                  link: projects[index]["link"],
-                  duration: projects[index]["duration"],
-                );
-              },
+                vertical: 15.0, horizontal: deviceSize.width * 0.05),
+            child: CarouselWithIndicator(
+              slides: projects
+                  .map(
+                    (item) => ProjectItem(
+                      key: Key(item["title"]),
+                      title: item["title"],
+                      description: item["description"],
+                      imgUrl: item["imgUrl"],
+                      link: item["link"],
+                      duration: item["duration"],
+                    ),
+                  )
+                  .toList(),
             ),
-          )
+          ),
         ],
       ),
     );
   }
 }
 
-class ProjectItem extends StatelessWidget {
+class ProjectItem extends StatefulWidget {
   const ProjectItem(
       {super.key,
       required this.imgUrl,
@@ -122,57 +120,116 @@ class ProjectItem extends StatelessWidget {
   final String description;
   final List<DateTime> duration;
   final String link;
+
+  @override
+  State<ProjectItem> createState() => _ProjectItemState();
+}
+
+class _ProjectItemState extends State<ProjectItem> {
+  bool isVisible = false;
   @override
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
+    Size deviceSize = MediaQuery.of(context).size;
+    bool isMobileMode = deviceSize.width <= 750;
 
-    bool isOngoing = duration[1].isAtSameMomentAs(DateTime(
+    bool isOngoing = widget.duration[1].isAtSameMomentAs(DateTime(
       now.year,
       now.month,
     ));
 
     String durationStr =
-        "${DateFormat("MMMM, yyyy").format(duration[0])} - ${!isOngoing ? DateFormat("MMMM, yyyy").format(duration[1]) : 'Present'}";
+        "${DateFormat("MMMM, yyyy").format(widget.duration[0])} - ${!isOngoing ? DateFormat("MMMM, yyyy").format(widget.duration[1]) : 'Present'}";
 
-    return Card(
-      elevation: 2,
-      child: Container(
-        color: Colors.white,
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.network(
-                imgUrl,
-                fit: BoxFit.contain,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      durationStr,
-                      style: TextStyle(color: Colors.blueGrey[700]),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      title,
-                      textScaleFactor: 1.5,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      description,
-                      style: const TextStyle(
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.w300),
-                    )
-                  ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: MouseRegion(
+        onHover: (event) {
+          setState(() {
+            isVisible = true;
+          });
+        },
+        onEnter: (event) {
+          setState(() {
+            isVisible = true;
+          });
+        },
+        onExit: (event) {
+          setState(() {
+            isVisible = false;
+          });
+        },
+        child: Stack(alignment: Alignment.bottomCenter, children: [
+          Container(
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Image.network(
+              widget.imgUrl,
+              height: double.maxFinite,
+              width: double.maxFinite,
+              fit: BoxFit.cover,
+            ),
+          ),
+          AnimatedOpacity(
+            opacity: isVisible ? 1.0 : 0.0,
+            duration: const Duration(milliseconds: 200),
+            child: Container(
+              clipBehavior: Clip.antiAlias,
+              margin: const EdgeInsets.all(10),
+              width: double.maxFinite,
+              constraints: BoxConstraints(
+                  maxHeight: (isMobileMode
+                          ? deviceSize.height * 0.4
+                          : deviceSize.height * 0.6) -
+                      15,
+                  minHeight: (isMobileMode
+                          ? deviceSize.height * 0.4
+                          : deviceSize.height * 0.6) *
+                      0.4),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.85),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
                 ),
-              )
-            ]),
+              ),
+              padding: EdgeInsets.all(isMobileMode ? 15 : 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(),
+                    child: FittedBox(
+                      child: Text(
+                        durationStr,
+                        style: TextStyle(color: Colors.blueGrey[700]),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    widget.title,
+                    textScaleFactor: isMobileMode ? 1 : 1.5,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    widget.description,
+                    style: const TextStyle(
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ]),
       ),
     );
   }
