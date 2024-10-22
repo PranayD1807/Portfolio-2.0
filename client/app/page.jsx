@@ -7,6 +7,12 @@ import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 
 const Home = () => {
+  const aboutme = "I am a B.Tech CSE Student at the Indian Institute of Information Technology, Sonepat, " +
+    " with hands-on experience in software developement, particularly in mobile and web applications." +
+    " I have interned at Techlane Ai Pvt Ltd, where I led teams in app app development," +
+    " including the successful launch of the Tawx app, which garnered 2,000+ downloads." +
+    " My technical skills include Flutter, MERN stack, Firebase, AWS, and GCP. " +
+    "I have a strong foundation in DSA and OOP and am passionate about building scalable and efficient applications.";
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
@@ -18,10 +24,7 @@ const Home = () => {
               Hello I'm <br />{" "}
               <span className="text-accent">Pranay Dhongade</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80">
-              I excel at crafting elegant digital experiences and I am
-              proficient in various proframming languages and technologies.{" "}
-            </p>
+            <p className="max-w-[500px] mb-9 text-white/80">{aboutme}</p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button

@@ -5,7 +5,7 @@ import CountUp from "react-countup";
 const stats = [
   {
     num: 2000,
-    text: "Total Github Contributions",
+    text: "Github Contributions",
   },
   {
     num: 367,
