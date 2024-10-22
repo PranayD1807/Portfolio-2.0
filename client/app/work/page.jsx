@@ -23,57 +23,70 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
   {
     num: "01",
-    category: "frontend",
-    title: "project 1",
+    tagLine: "An Extensive Movie Database Platform.",
+    title: "MOOOVIES: MERN-Driven Movie Insights Powered by TMDb API",
     stack: [
-      {
-        name: "Html 5",
-      },
-      {
-        name: "CSS 5",
-      },
+      "React.js",
+      "Node.js",
+      "Material UI",
+      "Express.js",
+      "MongoDB",
+      "TheMovieDB API",
+      "Vercel",
     ],
     image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
+    live: "https://mooovies-six.vercel.app/",
+    github: "https://github.com/PranayD1807/mooovies-MERN",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus expedita, laborum ex est cum quis pariatur accusamus necessitatibus voluptatum! Accusamus.",
+      "Developed an application hosted on Vercel that delivers detailed movie information, including ratings, cast details, and plot summaries for over 5,000+ movies.",
   },
   {
     num: "02",
-    category: "frontend",
-    title: "project 2",
+    tagLine: "Professional Consultation & One-on-One Sessions Platform",
+    title: "Tawx: Talk to Influencers & Experts",
     stack: [
-      {
-        name: "Html 5",
-      },
-      {
-        name: "CSS 5",
-      },
+      "Flutter",
+      "Firebase",
+      "MongoDB",
+      "AWS",
+      "Agora",
+      "Node.js",
+      "Express.js",
+      "GCP",
+      "FCM",
+      "Cloud Run functions",
     ],
     image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
+    live: "https://onelink.to/q3zst5",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus expedita, laborum ex est cum quis pariatur accusamus necessitatibus voluptatum! Accusamus.",
+      "Designed the backend, frontend, and system architecture for the Tawx app. Launched with over 2,000 downloads in 2 weeks, enabling professional communication and one-on-one sessions with influencers and experts for advice, tips, and tricks.",
   },
   {
     num: "03",
-    category: "frontend",
-    title: "project 3",
-    stack: [
-      {
-        name: "Html 5",
-      },
-      {
-        name: "CSS 5",
-      },
-    ],
+    tagLine: "Mental Health Support App",
+    title: "Ivyy: Real-Time Mental Health Support",
+    stack: ["Flutter", "Firebase", "REST API", "LLM Model"],
     image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus expedita, laborum ex est cum quis pariatur accusamus necessitatibus voluptatum! Accusamus.",
+      "Worked with one other developer to create and launch an app that connects users with real-world psychiatrists through live chat for interactive conversations, attracting over 200 users.",
+  },
+  {
+    num: "04",
+    tagLine: "Online Car Rental Service.",
+    title: "Gear UP: MERN-Powered Car Rentals with CarQuery",
+    stack: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "CarQuery API",
+      "CDN API",
+    ],
+    image: "/assets/work/thumb1.png",
+    live: "https://gear-up-frontend.vercel.app/",
+    github: "https://github.com/Gear-Up-Rentals/Gear-Up",
+    description:
+      "Implemented the service with a team of 3, integrating CarQuery for extensive vehicle data and CDN for image hosting.",
   },
 ];
 
@@ -106,54 +119,60 @@ const Work = () => {
               >
                 {project.num}
               </div>
-              {/* project category */}
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+              {/* project title */}
+              <h2 className="text-[32px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {project.title}
               </h2>
               {/* project description */}
-              <p className="text-white/60 ">{project.description}</p>
+              <p className="text-white/60 ">
+                {project.tagLine}
+                <br />
+                {project.description}
+              </p>
               {/* stack */}
-              <ul className="flex gap-4">
+              <ul className="flex flex-wrap gap-x-4 gap-y-2">
                 {project.stack.map((item, index) => {
                   return (
-                    <li key={index} className="text-xl text-accent">
-                      {item.name}
+                    <li key={index} className="text-l text-accent">
+                      {item}
                       {/* remove the last comma */}
                       {index !== project.stack.length - 1 && ","}
                     </li>
                   );
                 })}
               </ul>
-              {/* border */}
-              <div className="border border-white/20"></div>
               {/* buttons */}
               <div className="flex items-center gap-4">
                 {/* live button */}
-                <Link href={project.live}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Live project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.live?.trim() && (
+                  <Link href={project.live}>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live project</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
                 {/* Github button */}
-                <Link href={project.github}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Github repository</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.github?.trim() && (
+                  <Link href={project.github}>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Github repository</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

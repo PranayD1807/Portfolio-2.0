@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
         <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
+        <footer className="h-16" />
       </body>
     </html>
   );
