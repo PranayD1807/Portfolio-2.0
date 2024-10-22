@@ -42,7 +42,7 @@ const Contact = () => {
       }}
       className="py-6"
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
@@ -88,16 +88,20 @@ const Contact = () => {
           </div>
           {/* info */}
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
-            <ul className="flex flex-col gap-10">
+            <ul className="max-w-full flex flex-col gap-4 md:gap-6">
               {info.map((item, index) => {
                 return (
-                  <li key={index} className="flex items-center gap-6">
-                    <div className="w-[52px] h-[52px] xl:w-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                  <li key={index} className="flex items-center gap-4 md:gap-6">
+                    <div className="min-w-[40px] h-[40px] md:min-w-[52px] md:w-[52px] md:h-[52px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
                       <div>{item.icon}</div>
                     </div>
                     <div className="flex-1">
-                      <p className="text-white/60">{item.title}</p>
-                      <h3 className="text-xl">{item.description}</h3>
+                      <p className="text-white/60 text-sm md:text-base">
+                        {item.title}
+                      </p>
+                      <h3 className="text-sm md:text-lg break-words">
+                        {item.description}
+                      </h3>
                     </div>
                   </li>
                 );
