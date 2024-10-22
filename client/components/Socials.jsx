@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 const socials = [
   {
@@ -9,6 +10,10 @@ const socials = [
   {
     icon: <FaLinkedin />,
     path: "https://www.linkedin.com/in/pranay-dhongade-8bb91a202",
+  },
+  {
+    icon: <SiLeetcode />,
+    path: "https://leetcode.com/u/Mellow-XD/",
   },
 ];
 
