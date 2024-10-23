@@ -30,109 +30,35 @@ import {
   SiGooglecloud,
 } from "react-icons/si";
 
+// data
+import aboutData from "@/data/about.json";
+import education from "@/data/education.json";
+import experience from "@/data/experience.json";
+
 // about data
 const about = {
   title: "About me",
-  description:
-    "A passionate software developer with experience in leading projects, building scalable applications, and collaborating with teams to deliver high-quality software solutions. Skilled in full-stack development and always eager to learn new technologies.",
+  description: aboutData.description,
   info: [
     {
       fieldName: "Name",
-      fieldValue: "Pranay Dhongade",
+      fieldValue: aboutData.name,
     },
     {
       fieldName: "Phone",
-      fieldValue: "+91 91723 98229",
+      fieldValue: aboutData.phone,
     },
     {
       fieldName: "Email",
-      fieldValue: "pranaydhongade1234@gmail.com",
+      fieldValue: aboutData.email,
     },
     {
       fieldName: "Languages",
-      fieldValue: "English, Hindi, Marathi",
+      fieldValue: aboutData.languages,
     },
     {
       fieldName: "Hobbies",
-      fieldValue: "Coding, Wanderlust, Building, Video Games, Reading",
-    },
-  ],
-};
-
-// experience data
-const experience = {
-  icon: "/assets/resume/badge.svg",
-  title: "My experience",
-  description:
-    "Showcase my roles as a Software Engineer intern, leading teams, developing mobile and web apps using Flutter and MERN stack, integrating key functionalities like payment gateways and real-time messaging, and launching successful apps with over 2000+ downloads.",
-  items: [
-    {
-      company: "Techlane AI Pvt Ltd.",
-      position: "Software Development Engineer Intern",
-      duration: "Jan 2024 - Present",
-      info: [
-        "Led a team of 3-5 in designing database structures and making key system decisions.",
-        "Integrated payment gateways, live video calling and firebase cloud messaging.",
-        "Key contributor to the Tawx app development, achieving 2000+ downloads.",
-        "Published multiple apps on both Google Play Store and Apple App Store.",
-        "Restructured user sessions, overhauled backend architecture, and deployed servers efficiently.",
-        "Provided strategic suggestions and feedback to senior management during internal meetings",
-      ],
-    },
-    {
-      company: "Techlane AI Pvt Ltd.",
-      position: "Flutter Developer Intern",
-      duration: "Apr 2023 - May 2023",
-      info: [
-        "Spearheaded the development of two mobile applications using Flutter, ensuring optimal performance.",
-        "Integrated an AI chatbot with REST API and Firebase for seamless real-time messaging.",
-        "Implemented LocalDB for secure chat message storage and employed AES encryption for data backups.",
-        "Managed and guided a team of two developers to ensure efficient completion and delivery of the task.",
-      ],
-    },
-    {
-      company: "UIpropitome Tech",
-      position: "Flutter Developer Intern",
-      duration: "June 2022 - Aug 2022",
-      info: [
-        "Developed 3 cross-platform applications, improving device compatibility and user experience.",
-        "Designed and implemented the frontend for three integrated apps, including modules for doctor booking and card usage, which served a unified client organization",
-        "Collaborated closely with two team members on a large-scale initiative, enhancing overall quality and performance.",
-      ],
-    },
-    {
-      company: "Mewoc (Keshri Edutech)",
-      position: "Flutter Developer Intern",
-      duration: "Feb 2022 - Mar 2022",
-      info: [
-        "Created 4-6 modules for CRM and web applications using Flutter, improving overall efficiency and functionality.",
-        "Worked with a team of three to optimize the software development process, enhancing delivery speed and quality.",
-      ],
-    },
-  ],
-};
-
-// education data
-const education = {
-  icon: "/assets/resume/cap.svg",
-  title: "My education",
-  description:
-    "Completed B.Tech in Computer Science from IIIT Sonepat with a CGPA of 8.71, alongside senior and secondary education with distinction.",
-  items: [
-    {
-      institution: "IIIT, Sonepat",
-      degree: "B.Tech in Computer Science & Engineering",
-      duration: "Aug 2020 - June 2024",
-    },
-    {
-      institution: "Maharashtra State Board",
-      degree: "Higher Secondary Certificate (Science)",
-      duration: "Mar 2018 - Feb 2020",
-    },
-    {
-      institution: "Maharashtra State Board",
-      degree: "Secondary Certificate",
-      duration: "Jul 2017 - Mar 2018",
+      fieldValue: aboutData.hobbies,
     },
   ],
 };

@@ -8,17 +8,14 @@ import Socials from "@/components/Socials";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 
+// data
+import aboutData from "@/data/about.json";
+
 const data = {
-  name: "Pranay Dhongade",
-  role: "Software Developer",
-  cv: "https://drive.google.com/drive/folders/12J11YRafiJh5wtDaM3oIQYcPe7DqH_ix?usp=sharing",
-  about:
-    "I am a B.Tech CSE Student at the Indian Institute of Information Technology, Sonepat, " +
-    " with hands-on experience in software developement, particularly in mobile and web applications." +
-    " I have interned at Techlane Ai Pvt Ltd, where I led teams in app app development," +
-    " including the successful launch of the Tawx app, which garnered 2,000+ downloads." +
-    " My technical skills include Flutter, MERN stack, Firebase, AWS, and GCP. " +
-    "I have a strong foundation in DSA and OOP and am passionate about building scalable and efficient applications.",
+  name: aboutData.name,
+  role: aboutData.role,
+  cv: aboutData.cv,
+  about: aboutData.description,
 };
 
 const Home = () => {

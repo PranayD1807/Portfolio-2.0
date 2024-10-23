@@ -16,19 +16,28 @@ import {
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
+// data
+import aboutData from "@/data/about.json";
+
 const info = [
-  { icon: <FaPhoneAlt />, title: "Phone", description: "+91 91723 98229" },
+  { icon: <FaPhoneAlt />, title: "Phone", description: aboutData.phone },
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "pranaydhongade1234@gmail.com",
+    description: aboutData.email,
   },
   {
     icon: <FaMapMarkerAlt />,
     title: "Address",
-    description: "Bramhapuri, Chandrapur District, Maharashtra, India",
+    description: aboutData.address,
   },
 ];
+
+const tabDetails = {
+  title: "Let's work together",
+  description:
+    "Looking for a full-time opportunity to collaborate and bring value to an innovative team. I'm ready to contribute my skills and expertise, working together to achieve shared goals and drive success. Let's connect and create something impactful!",
+};
 
 import { motion } from "framer-motion";
 
@@ -47,13 +56,8 @@ const Contact = () => {
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
             <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-              <h3 className="text-4xl text-accent">Let's work together</h3>
-              <p className="text-white/60">
-                Looking for a full-time opportunity to collaborate and bring
-                value to an innovative team. I'm ready to contribute my skills
-                and expertise, working together to achieve shared goals and
-                drive success. Let's connect and create something impactful!
-              </p>
+              <h3 className="text-4xl text-accent">{tabDetails.title} </h3>
+              <p className="text-white/60">{tabDetails.description}</p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input type="firstname" placeholder="Firstname" />

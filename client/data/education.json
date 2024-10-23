@@ -1,0 +1,22 @@
+{
+  "icon": "/assets/resume/cap.svg",
+  "title": "My education",
+  "description": "Completed B.Tech in Computer Science from IIIT Sonepat with a CGPA of 8.71, alongside senior and secondary education with distinction.",
+  "items": [
+    {
+      "institution": "IIIT, Sonepat",
+      "degree": "B.Tech in Computer Science & Engineering",
+      "duration": "Aug 2020 - June 2024"
+    },
+    {
+      "institution": "Maharashtra State Board",
+      "degree": "Higher Secondary Certificate (Science)",
+      "duration": "Mar 2018 - Feb 2020"
+    },
+    {
+      "institution": "Maharashtra State Board",
+      "degree": "Secondary Certificate",
+      "duration": "Jul 2017 - Mar 2018"
+    }
+  ]
+}
