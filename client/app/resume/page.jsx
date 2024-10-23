@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 import {
   FaHtml5,
   FaCss3,
@@ -199,7 +201,24 @@ import {
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 
+// api
+import experienceApi from "@/api/modules/experience.api";
+
 const Resume = () => {
+  const [experiences, setExperiences] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      const { response, err } = await experienceApi.getAllExperiences();
+
+      if (err) toast.error(err.message);
+      if (response) {
+        setExperiences(response.data);
+      }
+    }
+    getData();
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -232,7 +251,7 @@ const Resume = () => {
                 </p>
                 <ScrollArea className="h-[400px]">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                    {experience.items.map((item, index) => {
+                    {experiences.map((item, index) => {
                       return (
                         <li
                           key={index}
