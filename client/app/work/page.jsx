@@ -15,6 +15,7 @@ import {
 
 import Link from "next/link";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 // api
 import projectApi from "@/api/modules/project.api";
