@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllProjects, createProject, getProject, updateProject, deleteProject } from "../controllers/projectController.js";
+import { getAllProjects, createProject, getProject, updateProject } from "../controllers/projectController.js";
 
 const router = Router(); //this is a middleware
 router
@@ -10,7 +10,5 @@ router
 router
     .route("/:id")
     .get(getProject)
-    .patch(updateProject)
-    .delete(deleteProject);
-
+    .patch(updateProject);
 export default router;
