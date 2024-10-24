@@ -1,0 +1,225 @@
+{
+  "info": {
+    "_postman_id": "2ee3e072-725e-4b6f-b8ac-67944457c17f",
+    "name": "Portfolio",
+    "description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19331186"
+  },
+  "item": [
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Get all projects",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://portfolio-2-0-2so7.vercel.app/api/v1/projects",
+              "protocol": "https",
+              "host": ["portfolio-2-0-2so7", "vercel", "app"],
+              "path": ["api", "v1", "projects"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Project",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/v1/projects/67189791e5ca88382825c4e7",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "projects", "67189791e5ca88382825c4e7"],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Project",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"num\": \"04\",\r\n    \"tagLine\": \"Online Car Rental Service.\",\r\n    \"title\": \"Gear UP: MERN-Powered Car Rentals with CarQuery\",\r\n    \"stack\": [\r\n      \"React.js\",\r\n      \"Node.js\",\r\n      \"Express.js\",\r\n      \"MongoDB\",\r\n      \"CarQuery API\",\r\n      \"CDN API\"\r\n    ],\r\n    \"image\": \"https://i.ibb.co/Y3HftXR/gearup-ss.png\",\r\n    \"live\": \"https://gear-up-frontend.vercel.app/\",\r\n    \"github\": \"https://github.com/Gear-Up-Rentals/Gear-Up\",\r\n    \"description\":\r\n      \"Implemented the service with a team of 3, integrating CarQuery for extensive vehicle data and CDN for image hosting.\"\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/v1/projects",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "projects"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Project",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \"image\": \"https://i.ibb.co/tL8THtm/mooovies-ss.png\"   \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/v1/projects/67189791e5ca88382825c4e7",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "projects", "67189791e5ca88382825c4e7"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Experience",
+      "item": [
+        {
+          "name": "Get all experiences",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/v1/experiences?sort=-isOngoing,-endsAt",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "experiences"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "-isOngoing,-endsAt"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create experiene",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"company\": \"UIpropitome Tech\",\r\n        \"position\": \"Flutter Developer Intern\",\r\n        \"endsAt\": \"2022-08-31T00:00:00.000Z\",\r\n        \"duration\": \"June 2022 - Aug 2022\",\r\n        \"info\": [\r\n            \"Developed 3 cross-platform applications, improving device compatibility and user experience.\",\r\n            \"Designed and implemented the frontend for three integrated apps, including modules for doctor booking and card usage, which served a unified client organization.\",\r\n            \"Collaborated closely with two team members on a large-scale initiative, enhancing overall quality and performance.\"\r\n        ]\r\n    },",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/v1/experiences",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "experiences"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Experience",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"isOngoing\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/v1/experiences/6718aa70f8ba4c033c63ac19",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "experiences", "6718aa70f8ba4c033c63ac19"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Experience",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Submit Contact Form",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Mellow\",\r\n    \"lastName\": \"TESTING\",\r\n    \"phoneNumber\": \"9191919191\",\r\n    \"serviceType\": \"FullTime\",\r\n    \"email\": \"mellow.techlane.testing@gmail.com\",\r\n    \"message\": \"THIS IS TESTING EMAIL\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/v1/contact",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "contact"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "id",
+      "value": "1"
+    },
+    {
+      "key": "base_url",
+      "value": "https://postman-rest-api-learner.glitch.me/"
+    }
+  ]
+}

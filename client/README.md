@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+# Portfolio 2.0
+
+This is my personal portfolio website built with Next.js, Tailwind CSS, React, and Axios, leveraging components from [shadcn/ui](https://ui.shadcn.com/).
+
+## Tech Stack
+
+- **Next.js**: Framework for server-side rendering and static site generation.
+- **React**: Frontend library for building user interfaces.
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
+- **Axios**: Promise-based HTTP client for API requests.
+- **shadcn/ui**: Pre-built, customizable UI components.
+
+## Features
+
+- Fully responsive and fast-loading.
+- Clean and modern UI design.
+- Smooth navigation and interactions.
+- Fetches dynamic data using Axios.
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/PranayD1807/Portfolio-2.0.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Hosted Version
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Check out the live version at: [https://portfolio-2-0-chi-woad.vercel.app/](https://portfolio-2-0-chi-woad.vercel.app/)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Deployment
 
-## Learn More
+This project is set up for deployment on platforms like Vercel or Netlify.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is open-source and available under the [MIT License](./LICENSE).
