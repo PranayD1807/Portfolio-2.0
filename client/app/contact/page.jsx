@@ -48,6 +48,8 @@ const Contact = () => {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -60,6 +62,11 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Validation
+
+    if (isSubmitting) {
+      return;
+    }
+
     if (
       !formData.firstName ||
       !formData.lastName ||
@@ -75,6 +82,7 @@ const Contact = () => {
       return;
     }
 
+    setIsSubmitting(true);
     try {
       const { response, err } = await contactApi.sendMail(formData);
       if (err) {
@@ -94,6 +102,7 @@ const Contact = () => {
       console.error("Error:", error);
       toast.error("Failed to send the message. Please try again later."); // Show error toast
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -141,7 +150,7 @@ const Contact = () => {
                 />
                 <Input
                   type="tel"
-                  name="phone"
+                  name="phoneNumber"
                   placeholder="Phone number"
                   value={formData.phoneNumber}
                   onChange={handleChange}
@@ -174,7 +183,7 @@ const Contact = () => {
 
               {/* btn */}
               <Button size="md" className="max-w-40">
-                Send message
+                {isSubmitting ? "Submitting..." : "Send message"}
               </Button>
             </form>
           </div>

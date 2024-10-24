@@ -26,7 +26,11 @@ export default function RootLayout({ children }) {
         <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
-        <ToastContainer position="bottom-left" theme="dark" />
+        <ToastContainer
+          position="bottom-left"
+          theme="dark"
+          toastClassName="text-sm"
+        />
         <footer className="h-16" />
       </body>
     </html>
