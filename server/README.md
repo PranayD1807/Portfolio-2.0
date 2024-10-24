@@ -1,7 +1,3 @@
-This will be the server
-Here’s the updated `README.md` with the hosted link and environment variables:
-
-````markdown
 # Portfolio 2.0 - Server
 
 This is the backend server for my Portfolio 2.0 website. It is built using Node.js, Express, and MongoDB for handling API requests and data management.
@@ -27,6 +23,7 @@ This is the backend server for my Portfolio 2.0 website. It is built using Node.
    ```bash
    git clone https://github.com/PranayD1807/Portfolio-2.0-Server.git
    ```
+
 ````
 
 2. Install dependencies:
@@ -69,6 +66,7 @@ This project is deployed on Vercel.
 
 This project is open-source and available under the [MIT License](./LICENSE).
 
-```
 
-```
+
+
+````
