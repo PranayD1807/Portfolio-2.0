@@ -43,7 +43,7 @@ const Contact = () => {
     firstName: "",
     lastName: "",
     email: "",
-    phone: "",
+    phoneNumber: "",
     serviceType: "",
     message: "",
   });
@@ -70,7 +70,7 @@ const Contact = () => {
       return;
     }
 
-    if (!formData.email && !formData.phone) {
+    if (!formData.email && !formData.phoneNumber) {
       toast.error("Please provide at least an email or phone number.");
       return;
     }
@@ -85,7 +85,7 @@ const Contact = () => {
           firstName: "",
           lastName: "",
           email: "",
-          phone: "",
+          phoneNumber: "",
           serviceType: "",
           message: "",
         }); // Reset the form
@@ -143,7 +143,7 @@ const Contact = () => {
                   type="tel"
                   name="phone"
                   placeholder="Phone number"
-                  value={formData.phone}
+                  value={formData.phoneNumber}
                   onChange={handleChange}
                 />
               </div>
