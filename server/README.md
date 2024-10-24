@@ -20,11 +20,10 @@ This is the backend server for my Portfolio 2.0 website. It is built using Node.
 ## Getting Started
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/PranayD1807/Portfolio-2.0-Server.git
    ```
-
-````
 
 2. Install dependencies:
    ```bash
@@ -65,8 +64,3 @@ This project is deployed on Vercel.
 ## License
 
 This project is open-source and available under the [MIT License](./LICENSE).
-
-
-
-
-````
