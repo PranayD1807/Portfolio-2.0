@@ -30,7 +30,9 @@ const transporter = createTransport({
 
 export const sendMail = (req, res, next) => {
     const { firstName, lastName, email, phoneNumber, serviceType, message } = req.body;
-
+    if (!email && !phoneNumber) {
+        return next(new AppError("Please provide at least an email or phone number.", 400));
+    }
     // mail options
     const mailOptions = {
         from: email || 'no-reply@portfolio.com',
