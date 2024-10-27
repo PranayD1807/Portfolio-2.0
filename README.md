@@ -102,9 +102,9 @@ Detailed API documentation is available in the `postman.json` file, which can be
 
 ```bash
 portfolio-2.0/
-├── frontend/          # Next.js frontend code
-├── backend/           # Express.js backend code
-├── postman.json       # API collection for testing
+├── client/          # Next.js frontend code
+├── server/           # Express.js backend code
+   ├── postman.json       # API collection for testing
 └── README.md          # This file!
 ```
 
