@@ -1,3 +1,5 @@
+"use client";
+
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,6 +9,11 @@ import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 import { ToastContainer } from "react-toastify";
+import React, { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import ReactGA from "react-ga";
+
+ReactGA.initialize("G-JCPL33DQGG");
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -14,12 +21,21 @@ const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrainsMono",
 });
 
-export const metadata = {
-  title: "Pranay Dhongade",
-  description: "Portfolio - Pranay Dhongade",
-};
+// Removed metadata for now.
+// export const metadata = {
+//   title: "Pranay Dhongade",
+//   description: "Portfolio - Pranay Dhongade",
+// };
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname) {
+      ReactGA.pageview(pathname); // Track pageview on path change
+    }
+  }, [pathname]);
+
   return (
     <html lang="en">
       <body className={jetBrainsMono.variable}>
