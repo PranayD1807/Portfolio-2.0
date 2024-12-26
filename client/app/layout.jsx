@@ -3,7 +3,6 @@
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
-import Head from "next/head";
 
 // Components
 import Header from "@/components/Header";
@@ -39,11 +38,14 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <Head>
+      <head>
         <title>Pranay Dhongade</title>
         <meta name="description" content="Software Engineer" />
-        <meta name="google-site-verification" content="9KhOlc-JIzrgHKX8fmRXgx04CGw4xcHOZVRBT5VMVvY" />
-      </Head>
+        <meta
+          name="google-site-verification"
+          content="9KhOlc-JIzrgHKX8fmRXgx04CGw4xcHOZVRBT5VMVvY"
+        />
+      </head>
       <body className={jetBrainsMono.variable}>
         <Header />
         <StairTransition />
