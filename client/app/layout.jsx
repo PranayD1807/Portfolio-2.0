@@ -42,6 +42,7 @@ export default function RootLayout({ children }) {
       <Head>
         <title>Pranay Dhongade</title>
         <meta name="description" content="Software Engineer" />
+        <meta name="google-site-verification" content="9KhOlc-JIzrgHKX8fmRXgx04CGw4xcHOZVRBT5VMVvY" />
       </Head>
       <body className={jetBrainsMono.variable}>
         <Header />
