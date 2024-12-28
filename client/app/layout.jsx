@@ -9,9 +9,10 @@ import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 import { ToastContainer } from "react-toastify";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import ReactGA from "react-ga";
+import visitApi from "@/api/modules/visits.api";
 
 ReactGA.initialize("G-JCPL33DQGG");
 
@@ -27,14 +28,51 @@ const jetBrainsMono = JetBrains_Mono({
 //   description: "Portfolio - Pranay Dhongade",
 // };
 
+async function logVisit() {
+  let sessionId = localStorage.getItem("session_id");
+  if (!sessionId) {
+    sessionId = crypto.randomUUID();
+    localStorage.setItem("session_id", sessionId);
+  }
+
+  const deviceInfo = `Platform: ${navigator.platform}, User-Agent: ${navigator.userAgent}`;
+
+  try {
+    const response = await fetch("https://api.ipify.org?format=json");
+    const { ip } = await response.json();
+
+    const { response: apiResponse, err } = await visitApi.logVisit({
+      sessionId,
+      ipAddress: ip,
+      deviceInfo,
+    });
+
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Visited");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
 export default function RootLayout({ children }) {
   const pathname = usePathname();
+  const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {
     if (pathname) {
       ReactGA.pageview(pathname); // Track pageview on path change
     }
   }, [pathname]);
+
+  useEffect(() => {
+    if (!dataFetched) {
+      logVisit();
+      setDataFetched(true);
+    }
+  }, [dataFetched]);
 
   return (
     <html lang="en">

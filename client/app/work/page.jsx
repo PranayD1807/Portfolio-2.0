@@ -26,19 +26,22 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const Work = () => {
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState(null);
+  const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {
-    async function getData() {
-      const { response, err } = await projectApi.getAllProjects();
-
-      if (err) toast.error(err.message);
-      if (response) {
-        setProjects(response.data);
-        setProject(response.data[0]);
+    if (!dataFetched) {
+      async function getData() {
+        const { response, err } = await projectApi.getAllProjects();
+        if (err) toast.error(err.message);
+        if (response) {
+          setProjects(response.data);
+          setProject(response.data[0]);
+        }
+        setDataFetched(true);
       }
+      getData();
     }
-    getData();
-  }, []);
+  }, [dataFetched]);
 
   const handleSlideChange = (swiper) => {
     // get current slide index

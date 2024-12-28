@@ -13,13 +13,17 @@ const publicClient = axios.create({
 });
 
 publicClient.interceptors.request.use(async (config) => {
+    const sessionId = localStorage.getItem('session_id') || '';
     return {
         ...config,
-        Headers: {
+        headers: {
+            ...config.headers,
             "Content-Type": "application/json",
+            "Session-ID": sessionId,
         },
     };
 });
+
 
 publicClient.interceptors.response.use(
     (response) => {

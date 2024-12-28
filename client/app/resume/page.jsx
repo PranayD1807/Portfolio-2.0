@@ -206,18 +206,22 @@ import experienceApi from "@/api/modules/experience.api";
 
 const Resume = () => {
   const [experiences, setExperiences] = useState([]);
+  const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {
-    async function getData() {
-      const { response, err } = await experienceApi.getAllExperiences();
+    if (!dataFetched) {
+      async function getData() {
+        const { response, err } = await experienceApi.getAllExperiences();
 
-      if (err) toast.error(err.message);
-      if (response) {
-        setExperiences(response.data);
+        if (err) toast.error(err.message);
+        if (response) {
+          setExperiences(response.data);
+        }
       }
+      setDataFetched(true);
+      getData();
     }
-    getData();
-  }, []);
+  }, [dataFetched]);
 
   return (
     <motion.div
