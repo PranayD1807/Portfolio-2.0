@@ -6,10 +6,12 @@ import AppError from "../utils/appError.js";
 import projectRoutes from "./projectRoutes.js";
 import experienceRoutes from "./experienceRoutes.js";
 import contactRoutes from "./contactRoutes.js";
+import pageviewRoutes from "./pageviewRoutes.js"
 
 router.use("/projects", projectRoutes)
 router.use("/experiences", experienceRoutes)
 router.use("/contact", contactRoutes)
+router.use("/visits", pageviewRoutes)
 
 // All routes
 router.all("*", (req, res, next) => {

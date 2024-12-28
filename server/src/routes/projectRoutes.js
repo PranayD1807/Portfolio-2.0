@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { getAllProjects, createProject, getProject, updateProject } from "../controllers/projectController.js";
 
-const router = Router(); //this is a middleware
+const router = Router();
 router
     .route("/")
     .get(getAllProjects)
