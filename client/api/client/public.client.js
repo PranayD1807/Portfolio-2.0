@@ -2,7 +2,8 @@
 import axios from "axios";
 import queryString from "query-string";
 const localHostUrl = "http://127.0.0.1:8080/";
-const prodUrl = "https://portfolio-2-0-2so7.vercel.app/";
+// const prodUrl = "https://portfolio-2-0-2so7.vercel.app/";
+const prodUrl = "https://api.pranaydhongade.site/"
 const baseURL = `${prodUrl}api/v1/`;
 
 const publicClient = axios.create({

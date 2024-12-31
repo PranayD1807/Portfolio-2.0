@@ -17,6 +17,7 @@
     "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^7.4.1",
     "express-validator": "^6.15.0",
+    "googleapis": "^144.0.0",
     "hpp": "^0.2.3",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.10.0",

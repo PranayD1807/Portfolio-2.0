@@ -110,8 +110,8 @@ portfolio-2.0/
 
 ## 🌍 Live Version
 
-- Frontend: [https://portfolio-2-0-chi-woad.vercel.app/](https://portfolio-2-0-chi-woad.vercel.app/)
-- Backend: [https://portfolio-2-0-2so7.vercel.app/](https://portfolio-2-0-2so7.vercel.app/)
+- Frontend: [https://pranaydhongade.site](https://pranaydhongade.site)
+- Backend: [https://api.pranaydhongade.site](https://api.pranaydhongade.site)
 
 ## 🚀 Deployment
 

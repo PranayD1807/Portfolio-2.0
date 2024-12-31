@@ -51,7 +51,7 @@ The server will be running at [http://localhost:8080](http://localhost:8080).
 
 ## Hosted Version
 
-The live server is hosted at: [https://portfolio-2-0-2so7.vercel.app/](https://portfolio-2-0-2so7.vercel.app/)
+The live server is hosted at: [https://api.pranaydhongade.site](https://api.pranaydhongade.site)
 
 ## API Endpoints
 
