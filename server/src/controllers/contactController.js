@@ -57,9 +57,9 @@ export const getGCPCredentials = () => {
 // Google Sheets authentication
 const sheetsAuth = new google.auth.GoogleAuth({
     // Use credentials directly for production, fallback to file path for local dev
-    credentials: process.env.NODE_ENV === "prod" ? getGCPCredentials().credentials : undefined,
+    credentials: process.env.NODE_ENV === "PROD" ? getGCPCredentials().credentials : undefined,
     // Only use file path locally
-    keyFile: process.env.NODE_ENV !== "prod" ? path.resolve('src/google-service-account-key.json') : undefined,
+    keyFile: process.env.NODE_ENV !== "PROD" ? path.resolve('src/google-service-account-key.json') : undefined,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
