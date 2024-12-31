@@ -37,9 +37,29 @@ const transporter = createTransport({
     }
 });
 
+
+export const getGCPCredentials = () => {
+    // For Vercel (production), use environment variables to create the credentials object
+    if (process.env.GCP_PRIVATE_KEY) {
+        return {
+            credentials: {
+                client_email: process.env.GCP_SERVICE_ACCOUNT_EMAIL,
+                private_key: process.env.GCP_PRIVATE_KEY,
+            },
+            projectId: process.env.GCP_PROJECT_ID,
+        };
+    }
+
+    // Fallback for local development using gcloud CLI (this part is handled by Google SDK)
+    return {};
+};
+
 // Google Sheets authentication
 const sheetsAuth = new google.auth.GoogleAuth({
-    keyFile: path.resolve('src/google-service-account-key.json'),
+    // Use credentials directly for production, fallback to file path for local dev
+    credentials: process.env.NODE_ENV === "prod" ? getGCPCredentials().credentials : undefined,
+    // Only use file path locally
+    keyFile: process.env.NODE_ENV !== "prod" ? path.resolve('src/google-service-account-key.json') : undefined,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
