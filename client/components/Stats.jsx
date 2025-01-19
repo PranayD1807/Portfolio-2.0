@@ -4,6 +4,7 @@ import CountUp from "react-countup";
 
 import { useEffect, useState } from "react";
 import visitApi from "@/api/modules/visits.api";
+import { toast } from "react-toastify";
 
 const Stats = () => {
   const [stats, setStats] = useState([]);
