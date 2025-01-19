@@ -1,7 +1,8 @@
 import publicClient from "../client/public.client";
 
 const visitsEndpoints = {
-    logVisit: `/visits`,
+    logVisit: "/visits",
+    fetchStats: "/stats"
 };
 
 const visitApi = {
@@ -13,6 +14,15 @@ const visitApi = {
             return { err };
         }
     },
+
+    fetchStats: async (params = {}) => {
+        try {
+            const response = await publicClient.get(visitsEndpoints.fetchStats, params);
+            return { response };
+        } catch (err) {
+            return { err };
+        }
+    }
 };
 
 export default visitApi;

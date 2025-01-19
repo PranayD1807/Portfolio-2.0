@@ -2,26 +2,28 @@
 
 import CountUp from "react-countup";
 
-const stats = [
-  {
-    num: 2000,
-    text: "Github Contributions",
-  },
-  {
-    num: 367,
-    text: "Leetcode Questions",
-  },
-  {
-    num: 64,
-    text: "Total PRs",
-  },
-  {
-    num: 350,
-    text: "Code commits",
-  },
-];
+import { useEffect, useState } from "react";
+import visitApi from "@/api/modules/visits.api";
 
 const Stats = () => {
+  const [stats, setStats] = useState([]);
+  const [dataFetched, setDataFetched] = useState(false);
+
+  useEffect(() => {
+    async function getData() {
+      const { response, err } = await visitApi.fetchStats();
+
+      if (err) toast.error(err.message);
+      if (response && response.data) {
+        setStats(response.data);
+      }
+    }
+    if (!dataFetched) {
+      setDataFetched(true);
+      getData();
+    }
+  }, [dataFetched]);
+
   return (
     <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
       <div className="container mx-auto">
@@ -33,17 +35,17 @@ const Stats = () => {
                 className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
               >
                 <CountUp
-                  end={item.num}
+                  end={item.value}
                   duration={5}
                   delay={2}
                   className="text-4xl xl:text-6xl font-extrabold"
                 />
                 <p
                   className={`${
-                    item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
+                    item.label.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
                   } leading-snug text-white/80`}
                 >
-                  {item.text}
+                  {item.label}
                 </p>
               </div>
             );
