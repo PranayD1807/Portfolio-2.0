@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import queryString from "query-string";
-const localHostUrl = "http://127.0.0.1:8080/";
-// const prodUrl = "https://portfolio-2-0-2so7.vercel.app/";
-const prodUrl = "https://api.pranaydhongade.site/"
-const baseURL = `${prodUrl}api/v1/`;
+
+const environment = process.env.NEXT_PUBLIC_ENV
+const baseURL = `${environment == "PROD"
+        ? process.env.NEXT_PUBLIC_PROD_SERVER_BASE_URL
+        : process.env.NEXT_PUBLIC_DEV_SERVER_BASE_URL}api/v1/`;
 
 const publicClient = axios.create({
     baseURL,
