@@ -76,15 +76,15 @@ export const getStats = catchAsync(async (req, res) => {
                     "details": stats,
                 },
                 {
-                    "value": 2000,
+                    "value": 3270,
                     "label": "Github Contributions",
                 },
                 {
-                    "value": 404,
+                    "value": 423,
                     "label": "Leetcode Questions",
                 },
                 {
-                    "value": 460,
+                    "value": 1323,
                     "label": "Code commits",
                 },
             ]
