@@ -2,7 +2,7 @@
 
 Welcome to **Portfolio 2.0**! This is the complete project for my personal portfolio website, featuring a slick, responsive front end built with cutting-edge web technologies and a powerful backend serving data through a RESTful API. It's the perfect showcase of my skills as a full-stack developer!
 
-[Live Demo](https://portfolio-2-0-chi-woad.vercel.app/) | [Server](https://portfolio-2-0-2so7.vercel.app/)
+[Live Demo](https://pranaydhongade.vercel.app/) | [Server](https://api-pranaydhongade.vercel.app/)
 
 ## 🌟 Overview
 
