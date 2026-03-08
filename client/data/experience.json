@@ -1,7 +1,7 @@
 {
   "icon": "/assets/resume/badge.svg",
   "title": "My experience",
-  "description": "Showcase my roles as a Software Engineer intern, leading teams, developing mobile and web apps using Flutter and MERN stack, integrating key functionalities like payment gateways and real-time messaging, and launching successful apps with over 2000+ downloads.",
+  "description": "Junior Software Engineer with expertise in resilient microservices, BLE healthcare integrations, and automated CI/CD pipelines. Experienced in full-stack mobile and web development (Flutter, Android, Node.js, React.js), delivering scalable solutions like the Tawx app which achieved 2,000+ rapid downloads.",
   "items": [
     {
       "company": "Techlane AI Pvt Ltd.",
