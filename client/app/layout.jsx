@@ -13,6 +13,7 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import ReactGA from "react-ga";
 import visitApi from "@/api/modules/visits.api";
+import { Analytics } from "@vercel/analytics/next";
 
 ReactGA.initialize("G-JCPL33DQGG");
 
@@ -91,6 +92,7 @@ export default function RootLayout({ children }) {
           toastClassName="text-sm"
         />
         <footer className="h-16" />
+        <Analytics />
       </body>
     </html>
   );
